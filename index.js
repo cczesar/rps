@@ -33,6 +33,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function getPlayerChoice() {
+    let validInput = false;
+    let choice;
+    while (!validInput) {
+        choice = prompt("rock, paper, or scissors:").trim().toLowerCase();
+        if (options.includes(choice)) {
+            validInput = true; 
+        } else {
+            console.log("Invalid input. Please choose rock, paper, or scissors.");
+        }
+    }
+    return choice; 
+}
+
 function game() {
     let scorePlayer = 0;
     let scoreComputer = 0;
@@ -40,7 +54,7 @@ function game() {
 
     console.log("Welcome");
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("rock, paper, or scissors:").toLowerCase();
+        const playerSelection = getPlayerChoice(); 
         const computerSelection = getComputerChoice();
         const result = checkWinner(playerSelection, computerSelection);
         console.log(playRound(playerSelection, computerSelection));
@@ -49,7 +63,7 @@ function game() {
             scorePlayer++;
         } else if (result === "Computer Win") {
             scoreComputer++;
-        } else if (result === "Tie") { 
+        } else if (result === "Tie") {
             ties++;
         }
     }
