@@ -44,6 +44,9 @@ function checkWinner(playerSelection, computerSelection) {
 }
 
 function playRound(playerSelection, computerSelection) {
+    clearInterval(idleInterval);
+    cpuImage.src = `${computerSelection}.png`;
+
     const result = checkWinner(playerSelection, computerSelection);
     
     if (result === "Tie") {
@@ -56,6 +59,15 @@ function playRound(playerSelection, computerSelection) {
     round++;
     
 }
+
+setTimeout(() => {
+    idleInterval = setInterval(() => {
+        cpuImage.src = idleFrames[idleIndex];
+        idleIndex = (idleIndex + 1) % idleFrames.length;
+    }, 800);
+}, 2000);
+
+
 
 rockbutton.addEventListener('click', () => {
     const computerSelection = getComputerChoice();

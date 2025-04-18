@@ -27,3 +27,14 @@ button {
     border: none;
     cursor: pointer;
 }
+
+.pixel-img { 
+    width: 64px;
+    height: 64px;
+    image-rendering: pixelated;
+}
+
+.outcome{
+    font-size: 16px;
+    white-space: pre-line;
+}
