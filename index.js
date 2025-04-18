@@ -5,12 +5,20 @@ const rockbutton = document.querySelector('.rock');
 const paperbutton = document.querySelector('.paper');
 const scissorsbutton = document.querySelector('.scissors');
 const outcomeDiv = document.querySelector('.outcome');
+const cpuImage = document.querySelector("cpu-img");
 
 
 let scorePlayer = 0;
 let scoreComputer = 0;
 let ties = 0;
 let round = 1;
+
+let idleIndex = 0;
+const idleFrames = ["stone.jpeg", "paper.jpg", "scissors.jpg"];
+let idleInterval = setInterval(() => {
+    cpuImage.src = idleFrames[idleIndex];
+    idleIndex = (idleIndex + 1) % idleFrames.length;
+}, 800);
 
 function getComputerChoice() {
     const choice = options[Math.floor(Math.random() * options.length)];
