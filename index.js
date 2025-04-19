@@ -14,10 +14,10 @@ let ties = 0;
 let round = 1;
 
 const cpuImages = {
-    idle: "monitor.jpg",
-    rock: "stone.jpeg",
-    paper: "paper.jpg",
-    scissors: "scissors.jpg"
+    idle: "monitor.png",
+    rock: "rock.png",
+    paper: "paper.png",
+    scissors: "scissors.png"
 };
 
 function getComputerChoice() {
