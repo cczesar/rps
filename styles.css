@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(58, 53, 110);
     display: flex;
     color: white;
     font-family: monospace;
@@ -23,7 +23,7 @@ body {
 }
 
 button {
-    background: none;
+    background-color: wheat;
     border: none;
     cursor: pointer;
 }
@@ -32,6 +32,22 @@ button {
     width: 64px;
     height: 64px;
     image-rendering: pixelated;
+}
+
+#play-again {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 2px solid white;
+    background-color: rgb(42, 49, 74);
+    color: white;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+#play-again.show {
+    visibility: visible;
 }
 
 .outcome{

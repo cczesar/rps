@@ -1,4 +1,5 @@
 console.log('Rock Paper Scissors Game');
+console.log('I made this game based on the project on Odin Project but i just like this more so i trying to improve it.');
 
 const options = ["rock", "paper", "scissors"];
 const rockbutton = document.querySelector('.rock');
@@ -6,7 +7,7 @@ const paperbutton = document.querySelector('.paper');
 const scissorsbutton = document.querySelector('.scissors');
 const outcomeDiv = document.querySelector('.outcome');
 const cpuImage = document.querySelector("#cpu-img");
-
+const playAgainButton = document.querySelector('.play-again');
 
 let scorePlayer = 0;
 let scoreComputer = 0;
@@ -53,13 +54,35 @@ function playRound(playerSelection, computerSelection) {
     } else {
         outcomeDiv.innerText = `Round ${round} You lose! ${computerSelection} beats ${playerSelection}\nPlayer: ${scorePlayer} | Computer: ${scoreComputer} | Ties: ${ties}`;
     }
-    round++;
+    
+    disableButtons();
+    playAgainButton.style.display = "inline-block";
     
 }
 
 setTimeout(() => {
     cpuImage.src = cpuImages.idle;
 }, 2000);
+
+function disableButtons() {
+    rockbutton.disabled = true;
+    paperbutton.disabled = true
+    scissorsbutton.disabled = true;
+}
+
+function enableButtons() {
+    rockbutton.disabled = false;
+    paperbutton.disabled = false;
+    scissorsbutton.disabled = false;
+}
+
+playAgainButton.addEventListener("click", () => {
+    round++;
+    playAgainButton.style.display = "none"
+    cpuImage.src = cpuImages.idle;
+    enableButtons();
+});
+
 
 
 
