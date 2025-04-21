@@ -6,7 +6,7 @@ const rockbutton = document.querySelector('.rock');
 const paperbutton = document.querySelector('.paper');
 const scissorsbutton = document.querySelector('.scissors');
 const outcomeDiv = document.querySelector('.outcome');
-const cpuImage = document.querySelector("#cpu-img");
+const cpuImage = document.querySelector('#cpu-image');
 const playAgainButton = document.querySelector('.play-again');
 
 let scorePlayer = 0;
@@ -42,8 +42,14 @@ function checkWinner(playerSelection, computerSelection) {
     }
 }
 
+function changeCpu(newChoice) {
+    cpuImage.src = cpuImages[newChoice];
+    cpuImage.classList.add('jump');
+    setTimeout(() => cpuImage.classList.remove('jump'), 300);
+}
+
 function playRound(playerSelection, computerSelection) {
-    cpuImage.src = cpuImages[computerSelection];
+    changeCpu(computerSelection);
     
     const result = checkWinner(playerSelection, computerSelection);
     
@@ -79,7 +85,7 @@ function enableButtons() {
 playAgainButton.addEventListener("click", () => {
     round++;
     playAgainButton.style.display = "none"
-    cpuImage.src = cpuImages.idle;
+    changeCpu('idle');
     enableButtons();
 });
 
